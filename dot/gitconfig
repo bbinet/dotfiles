@@ -1,0 +1,39 @@
+[user]
+    name = Bruno Binet
+    email = bruno.binet@gmail.com
+
+[color]
+    branch = auto
+    diff = auto
+    status = auto
+    interactive = auto
+
+[alias]
+    subtree = !/usr/share/doc/git/contrib/subtree/git-subtree.sh
+    st = status
+    ci = commit
+    br = branch
+    co = checkout
+    df = diff
+    lol = log --decorate --pretty=oneline --abbrev-commit --all --graph
+    addremove = !git add . && git ls-files --deleted | xargs git rm
+    ctags = "!sh -c '[ -f .git/hooks/ctags ] || git init; .git/hooks/ctags' git-ctags"
+
+[core]
+    excludesfile = ~/.global_gitignore
+
+[init]
+    templatedir = ~/.git_template
+
+[merge]
+    tool = vimdiff
+
+[diff "odf"]
+    textconv=odt2txt
+
+[github]
+    user = bbinet
+
+[remote "origin"]
+    fetch = +refs/heads/*:refs/remotes/origin/*
+    fetch = +refs/pull/*/head:refs/remotes/origin/pr/*
