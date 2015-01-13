@@ -1,0 +1,57 @@
+# If not running interactively, don't do anything
+[ -z "$PS1" ] && return
+
+# don't put duplicate lines in the history. See bash(1) for more options
+export HISTCONTROL=ignoredups
+# ... and ignore same sucessive entries.
+export HISTCONTROL=ignoreboth
+# increase history size
+export HISTFILESIZE=1000
+export HISTSIZE=1000
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+# ensure $SSH_AUTH_SOCK is available at /tmp/ssh-agent-$USER-screen
+if test $SSH_AUTH_SOCK && [ $SSH_AUTH_SOCK != "/tmp/ssh-agent-$USER-screen" ]
+then
+    rm -f /tmp/ssh-agent-$USER-screen
+    ln -sf "$SSH_AUTH_SOCK" "/tmp/ssh-agent-$USER-screen"
+    echo "$DISPLAY" > "/tmp/ssh-x-display-$USER-screen"
+fi
+alias fix-x-display-screen="export DISPLAY=\$(cat /tmp/ssh-x-display-$USER-screen) && screen -X setenv DISPLAY \$DISPLAY"
+
+GREP_OPTIONS="--exclude-dir=\.svn --exclude-dir=\.hg --exclude-dir=\.git"
+# enable color support
+if [ "$TERM" != "dumb" ]; then
+    eval "`dircolors -b`"
+    alias ls='ls --color=auto'
+    GREP_OPTIONS="$GREP_OPTIONS --color"
+fi
+export GREP_OPTIONS
+export EDITOR=vim
+export LESS='-XFR'
+export TERM="xterm-256color"
+export PYTHONSTARTUP="$HOME/.pystartup.py"
+export PATH=~/.bin:$PATH
+
+before_bash_exit () {
+    if ! [ -z "$VIRTUAL_ENV" ]
+    then
+        deactivate
+    fi
+}
+trap before_bash_exit EXIT
+
+if [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+fi
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+if [ -f ~/.bashrc_after ]; then
+    . ~/.bashrc_after
+fi
