@@ -1,0 +1,20 @@
+verbose on
+multiuser on
+vbell on
+startup_message off
+defscrollback 30000
+# allow to use terminal scrollbar
+termcapinfo xterm* ti@:te@
+activity "Activity in %t(%n)"
+# detach automatically when hangup
+autodetach on
+maptimeout 0
+defc1 off
+shelltitle ""
+# backtick is the command output that will be displayed in the brackets
+backtick 0 30 30 sh -c 'screen -ls | grep --color=no -o "$PPID[^[:space:]]*"'
+hardstatus alwayslastline
+hardstatus string "%{= KW}[%`] %{= Kw}%{-} %-Lw%{= bW}%n%f %t%{-}%+Lw %=%d/%m %c "
+#shell -$SHELL
+altscreen on
+setenv SSH_AUTH_SOCK "/tmp/ssh-agent-$USER-screen"
