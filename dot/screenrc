@@ -17,4 +17,5 @@ hardstatus alwayslastline
 hardstatus string "%{= KW}[%`] %{= Kw}%{-} %-Lw%{= bW}%n%f %t%{-}%+Lw %=%d/%m %c "
 #shell -$SHELL
 altscreen on
-setenv SSH_AUTH_SOCK "/tmp/ssh-agent-$USER-screen"
+unsetenv SSH_AUTH_SOCK
+setenv SSH_AUTH_SOCK "/tmp/ssh-auth-sock-$USER"
