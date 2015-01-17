@@ -111,8 +111,21 @@ then
     . /usr/lib/git-core/git-sh-prompt
 fi
 
+__set_title() {
+    # Change the window title of X terminals 
+    case $TERM in
+        xterm*|rxvt*|Eterm)
+            echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\007"
+           ;;
+        screen)
+            echo -ne "\033_${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\033\\"
+          ;;
+    esac
+  }
+
+
 if [ -z "${_ORIG_PS1}" ]; then
     export _ORIG_PS1="$PS1"
 fi
 
-export PROMPT_COMMAND='__git_ps1 "$(__jobs_ps1)$(__venv_ps1)" "$_ORIG_PS1" "${white}(${bold}%s${white})${normal} "'
+export PROMPT_COMMAND='__git_ps1 "$(__jobs_ps1)$(__venv_ps1)" "$_ORIG_PS1" "${white}(${bold}%s${white})${normal} "; __set_title'
