@@ -12,7 +12,7 @@ maptimeout 0
 defc1 off
 shelltitle ""
 # backtick is the command output that will be displayed in the brackets
-backtick 0 30 30 sh -c 'screen -ls | grep --color=no -o "$PPID[^[:space:]]*"'
+backtick 0 30 30 sh -c 'screen -ls | grep --color=no -o "$PPID[^[:space:]]*" | sed -n "s/[^.]*\.//p"'
 hardstatus alwayslastline
 hardstatus string "%{= KW}[%`] %{= Kw}%{-} %-Lw%{= bW}%n%f %t%{-}%+Lw %=%d/%m %c "
 #shell -$SHELL
