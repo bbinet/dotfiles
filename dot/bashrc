@@ -44,9 +44,9 @@ before_bash_exit () {
 }
 trap before_bash_exit EXIT
 
-if [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-fi
+for compl in ~/.bash_completion.d/* ; do
+    source "$compl"
+done
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
