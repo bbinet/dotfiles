@@ -44,6 +44,10 @@ before_bash_exit () {
 }
 trap before_bash_exit EXIT
 
+if [ -f ~/.pip_bootstrap_profile.sh ]; then
+    . ~/.pip_bootstrap_profile.sh
+fi
+
 for compl in ~/.bash_completion.d/* ; do
     source "$compl"
 done

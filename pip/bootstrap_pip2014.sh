@@ -113,30 +113,6 @@ progress () {
 
     source "${HOME}/.pip_bootstrap_profile.sh";
 
-    if ( grep -q 'Added by Pip Bootstrap' "${HOME}/.bash_profile" ); then
-        message "Looks like you've run this before. Great. I'll leave your .bash_profile alone.";
-    else
-        if [[ ":${PREVIOUS_PATH}:" == *":${PYTHON_USER_BIN}:"* ]]; then
-            message '
-It appears that your Python scripts directory has already been added to your
-$PATH.  Since this is the case, I’m assuming you know what that means, and I’m
-not going to alter your configuration.
-';
-        else
-            message '
-Since your environment does not appear to be configured, I’m going to add a few
-lines to your “.bash_profile” file now, to make sure that commands like
-‘mkvirtualenv’, ‘pip’, and ‘workon’ all work.  These lines will be clearly
-marked, so feel free to delete them if you prefer a different configuration.
-';
-            echo '
-# vvvv ---- Added by Pip Bootstrap ---- vvvv #
-source "${HOME}/.pip_bootstrap_profile.sh";
-# ^^^^ ---- Added by Pip Bootstrap ---- ^^^^ #
-' >> "${HOME}/.bash_profile";
-        fi;
-    fi;
-
     progress "5";
 
     # Just for this subshell.
@@ -193,16 +169,4 @@ else
     exit "${STATUS}";
 fi;
 
-if inapp; then
-    echo "Start a new terminal to start playing with Python packaging.";
-else
-    # If stdin is a TTY, then pause before exiting and require the user to hit
-    # enter.  Otherwise just exit.
-    if [ -t 0 ]; then
-        echo "Start a new terminal now to use pip, or hit enter to keep using this one.";
-        echo "(Pip won't work yet in this one, though.)";
-        read nothing;
-    else
-        echo "Success, pip is set up for ${USER}"'!';
-    fi;
-fi;
+echo "Success, pip is set up for ${USER}"'!';
