@@ -21,5 +21,4 @@ then
     deactivate
 fi
 
-#vim '+HelpTags +PlugInstall +qall'
 vim +PlugInstall +qall
