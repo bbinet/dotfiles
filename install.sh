@@ -20,3 +20,6 @@ then
     pip install -r pip/syntax-checkers.txt
     deactivate
 fi
+
+#vim '+HelpTags +PlugInstall +qall'
+vim +PlugInstall +qall
