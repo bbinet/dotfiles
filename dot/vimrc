@@ -1,0 +1,80 @@
+if has('vim_starting')
+    set nocompatible
+    let plug_vim=expand('~/.vim/autoload/plug.vim')
+    if !filereadable(plug_vim)
+        silent !mkdir -p ~/.vim/autoload
+        silent !curl -fLo ~/.vim/autoload/plug.vim https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        autocmd VimEnter * PlugInstall
+    endif
+endif
+
+call plug#begin('~/.vim/plugged')
+
+" Colorschemes
+Plug 'tomasr/molokai'
+
+" Make sure you use single quotes
+Plug 'ctrlpvim/ctrlp.vim', { 'on': ['CtrlP', 'CtrlPBuffer', 'CtrlPCurFile', 'CtrlPTag'] }
+Plug 'sjl/gundo.vim', { 'on': ['GundoShow', 'GundoToggle'] }
+Plug 'tpope/vim-fugitive'
+
+call plug#end()
+
+
+" Globals {{{
+set nocompatible
+set modelines=0
+set autoread
+" make mouse to work with gnu screen
+set ttymouse=xterm2
+set ttyfast
+set viminfo=/10,'10,r/mnt/zip,r/mnt/floppy,f0,h,\"100
+set wildmode=list:longest,full
+set wildignore+=*.o,*.obj,.git,.svn,*.pyc
+set hidden
+set switchbuf=useopen
+" }}}
+
+" Backups {{{
+if v:version >= 703
+    set undofile
+    set undodir=~/.tmp/vim/undodir//,/tmp//
+else
+    let g:gundo_disable = 1
+endif
+set backupdir=~/.tmp/vim/backupdir//,/tmp//
+set directory=~/.tmp/vim/directory//,/tmp//
+set history=500
+set undolevels=500
+" }}}
+
+" User Interface {{{
+set guioptions-=T
+set guioptions-=r
+syntax on
+set bg=dark
+if exists('+relativenumber')
+    set relativenumber
+else
+    set number
+endif
+if exists('+cc')
+    set cc=80
+endif
+set listchars=tab:▸\ ,eol:¬,trail:·
+set shortmess+=r
+set showmode
+set showcmd
+set showmatch
+set t_Co=256
+colorscheme molokai
+hi ColorColumn ctermbg=234
+if has('gui_running')
+    set guifont=Menlo:h12
+    set go-=m
+endif
+set ruler
+set backspace=indent,eol,start
+set laststatus=2
+set encoding=utf-8 " Necessary to show unicode glyphs
+" }}}
