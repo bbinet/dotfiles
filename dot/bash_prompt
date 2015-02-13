@@ -19,9 +19,6 @@ bblue='\[\e[1;34m\]'
 bpurple='\[\e[1;35m\]'
 bcyan='\[\e[1;36m\]'
 bwhite='\[\e[1;37m\]'
-# bold
-bold=`tput bold`
-normal=`tput sgr0`
 
 if [[ "$USER" == "root" ]]
 then
@@ -128,4 +125,4 @@ if [ -z "${_ORIG_PS1}" ]; then
     export _ORIG_PS1="$PS1"
 fi
 
-export PROMPT_COMMAND='__git_ps1 "$(__jobs_ps1)$(__venv_ps1)" "$_ORIG_PS1" "${white}(${bold}%s${white})${normal} "; __set_title'
+export PROMPT_COMMAND='__git_ps1 "$(__jobs_ps1)$(__venv_ps1)" "$_ORIG_PS1" "${white}(${bgreen}%s${white}) "; __set_title'
