@@ -20,8 +20,20 @@ Plug 'sjl/gundo.vim', { 'on': ['GundoShow', 'GundoToggle'] }
 
 Plug 'bbinet/vim-fugitive'
 
+Plug 'SirVer/ultisnips', { 'on': [] }
+" vim snippets (they are separated from the ultisnips engine)
+Plug 'honza/vim-snippets'
+
+Plug 'Valloric/YouCompleteMe', { 'do': './install.sh', 'on': [] }
+
 call plug#end()
 
+" lazy loading of ultisnips and YouCompleteMe plugins on InsertEnter
+augroup load_insertenter
+    autocmd!
+    autocmd InsertEnter * call plug#load('ultisnips', 'YouCompleteMe')
+    	\| call youcompleteme#Enable() | autocmd! load_insertenter
+augroup END
 
 " Globals {{{
 set nocompatible
