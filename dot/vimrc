@@ -15,8 +15,10 @@ Plug 'tomasr/molokai'
 
 " Make sure you use single quotes
 Plug 'ctrlpvim/ctrlp.vim', { 'on': ['CtrlP', 'CtrlPBuffer', 'CtrlPCurFile', 'CtrlPTag'] }
+
 Plug 'sjl/gundo.vim', { 'on': ['GundoShow', 'GundoToggle'] }
-Plug 'tpope/vim-fugitive'
+
+Plug 'bbinet/vim-fugitive'
 
 call plug#end()
 
