@@ -141,6 +141,7 @@ set ruler
 set backspace=indent,eol,start
 set laststatus=2
 set encoding=utf-8 " Necessary to show unicode glyphs
+set scrolloff=3
 " }}}
 
 " Micro plugins {{{
