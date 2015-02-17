@@ -92,3 +92,32 @@ set backspace=indent,eol,start
 set laststatus=2
 set encoding=utf-8 " Necessary to show unicode glyphs
 " }}}
+
+" Micro plugins {{{
+
+" Focus last tab on tab close
+augroup FocusOnTabClose
+   au!
+   au TabLeave * call TabCloseLeave()
+   au TabEnter * call TabCloseEnter()
+augroup END
+function! TabCloseLeave()
+   " Vim default behavior is fine for the first and the last tab
+   if tabpagenr() != 1 && tabpagenr() != tabpagenr('$')
+      augroup TabCloseBufWinLeave
+         au!
+         autocmd BufWinLeave * let g:TabClosedFlag = 1
+      augroup END
+   endif
+endfunction
+function! TabCloseEnter()
+   if exists("#TabCloseBufWinLeave")
+      au! TabCloseBufWinLeave
+   endif
+   if exists('g:TabClosedFlag')
+      unlet! g:TabClosedFlag
+      tabprev
+   endif
+endfunction 
+
+" }}}
