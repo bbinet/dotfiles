@@ -118,8 +118,10 @@ set guioptions-=T
 set guioptions-=r
 syntax on
 set bg=dark
-set relativenumber
 set number
+if exists('+relativenumber')
+    set relativenumber
+endif
 if exists('+cc')
     set cc=80
 endif
