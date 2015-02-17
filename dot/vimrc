@@ -26,6 +26,9 @@ Plug 'honza/vim-snippets'
 
 Plug 'Valloric/YouCompleteMe', { 'do': './install.sh', 'on': [] }
 
+" vim calculator
+Plug 'arecarn/crunch.vim'
+
 call plug#end()
 
 " lazy loading of ultisnips and YouCompleteMe plugins on InsertEnter
