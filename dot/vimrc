@@ -19,6 +19,7 @@ Plug 'ctrlpvim/ctrlp.vim', { 'on': ['CtrlP', 'CtrlPBuffer', 'CtrlPCurFile', 'Ctr
 
 " Gundo - visualize and navigate your Vim undo tree
 Plug 'sjl/gundo.vim', { 'on': ['GundoShow', 'GundoToggle'] }
+    nnoremap <F5> :GundoToggle<CR>
 
 " Fugitive - For sexy git integration
 Plug 'bbinet/vim-fugitive'
