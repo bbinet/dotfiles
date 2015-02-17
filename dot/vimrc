@@ -97,6 +97,8 @@ set autoindent
 set ignorecase
 set smartcase
 set gdefault
+" Disable highlight
+map <leader><space> :noh<cr>:call clearmatches()<cr>
 " }}}
 
 " User Interface {{{
