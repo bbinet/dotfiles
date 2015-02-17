@@ -14,29 +14,33 @@ let mapleader=','
 
 call plug#begin('~/.vim/plugged')
 
-" Colorschemes
-Plug 'tomasr/molokai'
-
-" Make sure you use single quotes
+" CtrlP - Fuzzy file, buffer, mru, tag, etc finder
 Plug 'ctrlpvim/ctrlp.vim', { 'on': ['CtrlP', 'CtrlPBuffer', 'CtrlPCurFile', 'CtrlPTag'] }
 
+" Gundo - visualize and navigate your Vim undo tree
 Plug 'sjl/gundo.vim', { 'on': ['GundoShow', 'GundoToggle'] }
 
+" Fugitive - For sexy git integration
 Plug 'bbinet/vim-fugitive'
     noremap <leader>g :Gstatus<cr>
     noremap <leader>G :Gstatus<cr>:q<cr>
 
+" UltiSnips - the ultimate solution for snippets in Vim
 Plug 'SirVer/ultisnips', { 'on': [] }
-" vim snippets (they are separated from the ultisnips engine)
+" Vim-snippets (they are separated from the ultisnips engine)
 Plug 'honza/vim-snippets'
 
+" YouCompleteMe - Advanced code completion engine
 Plug 'Valloric/YouCompleteMe', { 'do': './install.sh', 'on': [] }
 
-" vim calculator
+" Crunch - Vim calculator
 Plug 'arecarn/crunch.vim'
 
-" vim-go - An entire development environment package for golang in vim
+" vim-go - An entire development environment package for golang in Vim
 Plug 'fatih/vim-go', {'for': 'go'}
+
+" Colorschemes
+Plug 'tomasr/molokai'
 
 call plug#end()
 
