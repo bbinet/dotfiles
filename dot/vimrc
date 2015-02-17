@@ -35,6 +35,9 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.sh', 'on': [] }
 " vim calculator
 Plug 'arecarn/crunch.vim'
 
+" vim-go - An entire development environment package for golang in vim
+Plug 'fatih/vim-go', {'for': 'go'}
+
 call plug#end()
 
 " lazy loading of ultisnips and YouCompleteMe plugins on InsertEnter
