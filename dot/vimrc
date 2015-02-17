@@ -28,7 +28,7 @@ Plug 'bbinet/vim-fugitive'
 
 " UltiSnips - the ultimate solution for snippets in Vim
 Plug 'SirVer/ultisnips', { 'on': [] }
-" Vim-snippets (they are separated from the ultisnips engine)
+" vim-snippets (they are separated from the ultisnips engine)
 Plug 'honza/vim-snippets'
 
 " YouCompleteMe - Advanced code completion engine
@@ -39,6 +39,16 @@ Plug 'arecarn/crunch.vim'
 
 " vim-go - An entire development environment package for golang in Vim
 Plug 'fatih/vim-go', {'for': 'go'}
+
+" vim-unimpaired - A list of symetric hotkeys
+" Primarily used to bubble lines, but lots of cool features, see :h unimpaired
+Plug 'tpope/vim-unimpaired'
+    " Bubble single lines
+    nmap <C-k> [e
+    nmap <C-j> ]e
+    " Bubble multiple lines
+    vmap <C-k> [egv
+    vmap <C-j> ]egv
 
 " Colorschemes
 Plug 'tomasr/molokai'
@@ -77,6 +87,16 @@ set backupdir=~/.tmp/vim/backupdir//,/tmp//
 set directory=~/.tmp/vim/directory//,/tmp//
 set history=500
 set undolevels=500
+" }}}
+
+" Search {{{
+set incsearch
+set hlsearch
+set shiftround
+set autoindent
+set ignorecase
+set smartcase
+set gdefault
 " }}}
 
 " User Interface {{{
