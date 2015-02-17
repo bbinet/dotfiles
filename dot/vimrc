@@ -8,6 +8,10 @@ if has('vim_starting')
     endif
 endif
 
+" Leader {{{
+let mapleader=','
+" }}}
+
 call plug#begin('~/.vim/plugged')
 
 " Colorschemes
@@ -19,6 +23,8 @@ Plug 'ctrlpvim/ctrlp.vim', { 'on': ['CtrlP', 'CtrlPBuffer', 'CtrlPCurFile', 'Ctr
 Plug 'sjl/gundo.vim', { 'on': ['GundoShow', 'GundoToggle'] }
 
 Plug 'bbinet/vim-fugitive'
+    noremap <leader>g :Gstatus<cr>
+    noremap <leader>G :Gstatus<cr>:q<cr>
 
 Plug 'SirVer/ultisnips', { 'on': [] }
 " vim snippets (they are separated from the ultisnips engine)
