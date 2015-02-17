@@ -84,11 +84,8 @@ set guioptions-=T
 set guioptions-=r
 syntax on
 set bg=dark
-if exists('+relativenumber')
-    set relativenumber
-else
-    set number
-endif
+set relativenumber
+set number
 if exists('+cc')
     set cc=80
 endif
