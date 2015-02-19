@@ -14,10 +14,26 @@ let mapleader=','
 
 call plug#begin('~/.vim/plugged')
 
+" Easily search for, substitute, and abbreviate multiple variants of a word
+Plug 'tpope/vim-abolish'
+" Quoting/parenthesizing made simple
+Plug 'tpope/vim-surround'
 " Enable repeating supported plugin maps with "." 
 Plug 'tpope/vim-repeat'
 " Heuristically set buffer options like shiftwidth and expandtab
 Plug 'tpope/vim-sleuth'
+" Comment stuff out
+Plug 'tpope/vim-commentary'
+" vim-unimpaired - A list of symetric hotkeys
+" Primarily used to bubble lines, but lots of cool features, see :h unimpaired
+Plug 'tpope/vim-unimpaired'
+    " Bubble single lines
+    nmap <C-k> [e
+    nmap <C-j> ]e
+    " Bubble multiple lines
+    vmap <C-k> [egv
+    vmap <C-j> ]egv
+
 
 " CtrlP - Fuzzy file, buffer, mru, tag, etc finder
 Plug 'ctrlpvim/ctrlp.vim', { 'on': ['CtrlP', 'CtrlPBuffer', 'CtrlPCurFile', 'CtrlPTag'] }
@@ -58,16 +74,6 @@ Plug 'arecarn/crunch.vim'
 Plug 'fatih/vim-go', {'for': 'go'}
 
 Plug 'saltstack/salt-vim', {'for': 'sls'}
-
-" vim-unimpaired - A list of symetric hotkeys
-" Primarily used to bubble lines, but lots of cool features, see :h unimpaired
-Plug 'tpope/vim-unimpaired'
-    " Bubble single lines
-    nmap <C-k> [e
-    nmap <C-j> ]e
-    " Bubble multiple lines
-    vmap <C-k> [egv
-    vmap <C-j> ]egv
 
 " Colorschemes
 Plug 'tomasr/molokai'
