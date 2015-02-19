@@ -24,6 +24,8 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sleuth'
 " Comment stuff out
 Plug 'tpope/vim-commentary'
+" Use CTRL-A/CTRL-X to increment dates, times, and more
+Plug 'tpope/vim-speeddating'
 " vim-unimpaired - A list of symetric hotkeys
 " Primarily used to bubble lines, but lots of cool features, see :h unimpaired
 Plug 'tpope/vim-unimpaired'
