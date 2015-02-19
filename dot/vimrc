@@ -52,6 +52,8 @@ Plug 'arecarn/crunch.vim'
 " vim-go - An entire development environment package for golang in Vim
 Plug 'fatih/vim-go', {'for': 'go'}
 
+Plug 'saltstack/salt-vim', {'for': 'sls'}
+
 " vim-unimpaired - A list of symetric hotkeys
 " Primarily used to bubble lines, but lots of cool features, see :h unimpaired
 Plug 'tpope/vim-unimpaired'
