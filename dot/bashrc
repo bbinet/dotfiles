@@ -8,6 +8,8 @@ export HISTCONTROL=ignoreboth
 # increase history size
 export HISTFILESIZE=3000
 export HISTSIZE=3000
+# include timestamp for every command in history
+export HISTTIMEFORMAT="%F %T "
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.

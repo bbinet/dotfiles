@@ -22,9 +22,9 @@ bwhite='\[\e[1;37m\]'
 
 if [[ "$USER" == "root" ]]
 then
-  export PS1="${bblack}\t ${bred}\u${red}@\h:${cyan}\w${reset}${white} \$ ${reset}";
+  export PS1="${bred}\u${red}@\h:${cyan}\w${reset}${white} \$ ${reset}";
 else
-  export PS1="${bblack}\t \u${white}@\h:${cyan}\w${reset}${white} \$ ${reset}";
+  export PS1="${bblack}\u${white}@\h:${cyan}\w${reset}${white} \$ ${reset}";
 fi 
 
 # 100% pure Bash (no forking) function to determine the name of the current git branch
