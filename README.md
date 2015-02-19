@@ -53,3 +53,5 @@ Get inspiration from:
 - https://github.com/terryma/dotfiles/blob/master/.vimrc
 - https://github.com/justinmk/config
 - https://github.com/tony/vim-config
+- https://github.com/saimn/dotfiles/blob/master/vimrc
+- https://github.com/houqp/vimrc-houqp/blob/master/allrc.vim
