@@ -107,6 +107,7 @@ set wildmode=list:longest,full
 set wildignore+=*.o,*.obj,.git,.svn,*.pyc
 set hidden
 set switchbuf=useopen
+set pastetoggle=<F2>
 " }}}
 
 " Backups {{{
