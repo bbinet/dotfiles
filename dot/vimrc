@@ -70,6 +70,11 @@ Plug 'honza/vim-snippets'
 " YouCompleteMe - Advanced code completion engine
 Plug 'Valloric/YouCompleteMe', { 'do': './install.sh', 'on': [] }
 
+" TagBar - A class outline viewer for vim
+Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
+    nnoremap <F8> :TagbarToggle<cr>
+    inoremap <F8> <esc>:TagbarToggle<cr>
+
 " Crunch - Vim calculator
 Plug 'arecarn/crunch.vim'
 

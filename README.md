@@ -31,7 +31,6 @@ Maybe we should install following plugins:
 - https://github.com/wellle/tmux-complete.vim (completion of words in adjacent tmux panes, an also works with Unite)
 --> that would make the whole plugin collection more consistent, based on Unite
 - https://github.com/inside/vim-search-pulse
-- https://github.com/majutsushi/tagbar
 - https://github.com/itchyny/lightline.vim
 - https://github.com/kana/vim-fakeclip (Provide pseudo "clipboard" registers)
 - https://github.com/mhinz/vim-startify
