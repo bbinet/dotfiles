@@ -25,6 +25,7 @@ Maybe we should install following plugins:
 - https://github.com/Shougo/unite-outline (also works with Unite)
 - https://github.com/Shougo/junkfile.vim (also works with Unite)
 - https://github.com/Shougo/unite-session (also works with Unite)
+- https://github.com/osyo-manga/unite-quickfix (also works with Unite)
 - https://github.com/Shougo/vimfiler.vim (Powerful file explorer, also works with Unite)
 - https://github.com/Shougo/neobundle.vim (also works with Unite)
 - https://github.com/Shougo/vimshell.vim (can also works with Unite)
@@ -34,8 +35,8 @@ Maybe we should install following plugins:
 - https://github.com/itchyny/lightline.vim
 - https://github.com/kana/vim-fakeclip (Provide pseudo "clipboard" registers)
 - https://github.com/mhinz/vim-startify
-- https://github.com/thinca/vim-qfreplace (Perform the replacement in quickfix)
 - https://github.com/thinca/vim-quickrun (Run commands quickly)
+- https://github.com/gregsexton/gitv (gitk for vim - fugitive extension)
 
 Interesting plugins:
 - https://github.com/szw/vim-ctrlspace (Vim Workspace Controller)
