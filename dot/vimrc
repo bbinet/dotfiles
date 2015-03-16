@@ -36,6 +36,8 @@ Plug 'tpope/vim-unimpaired'
     vmap <C-k> [egv
     vmap <C-j> ]egv
 
+" quickfix-reflector.vim - Change code right in the quickfix window
+Plug 'stefandtw/quickfix-reflector.vim'
 
 " CtrlP - Fuzzy file, buffer, mru, tag, etc finder
 Plug 'ctrlpvim/ctrlp.vim', { 'on': ['CtrlP', 'CtrlPBuffer', 'CtrlPCurFile', 'CtrlPTag'] }
@@ -216,4 +218,20 @@ aug cursorline
     au InsertEnter * set nocursorline
     au InsertLeave * set cursorline
 aug end
+" }}}
+
+" QuickFix {{{
+aug quickfix
+    au!
+    au Filetype qf setlocal colorcolumn=0 nolist nocursorline nowrap modifiable
+    au Filetype qf nnoremap <silent> <buffer> q :cclose<cr>
+    " Open quickfix window after any grep invocation
+aug end
+" Open/close the quickfix
+noremap <leader>q :cope<cr>
+noremap <leader>Q :cclose<cr>
+" Add QGgrep command to display the result of Ggrep directly in the quickfix
+command! -nargs=1 -complete=command QGgrep silent exe 'Ggrep! <args>' | redraw! | cope
+" git-grep word under cursor
+noremap <leader>* "cyiw:QGgrep "\<<c-r>c\>"<cr>
 " }}}
