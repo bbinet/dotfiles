@@ -14,6 +14,8 @@ let mapleader=','
 
 call plug#begin('~/.vim/plugged')
 
+" File-line - open a file in a given line
+Plug 'bogado/file-line'
 " Easily search for, substitute, and abbreviate multiple variants of a word
 Plug 'tpope/vim-abolish'
 " Quoting/parenthesizing made simple
