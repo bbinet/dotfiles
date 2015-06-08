@@ -80,6 +80,9 @@ Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 " Crunch - Vim calculator
 Plug 'arecarn/crunch.vim'
 
+" Fakeclip - Pseudo clipboard register for non-GUI version of Vim
+Plug 'kana/vim-fakeclip'
+
 " vim-go - An entire development environment package for golang in Vim
 Plug 'fatih/vim-go', {'for': 'go'}
 
