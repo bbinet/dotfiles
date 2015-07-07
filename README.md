@@ -16,6 +16,7 @@ To be installed shortly:
 - https://github.com/airblade/vim-gitgutter (shows a git diff in the gutter (sign column) and stages/reverts hunks)
 - https://github.com/thinca/vim-ref (Integrated reference viewer)
 - matchit
+- yankring, yankround, yankstack, united-front, unite history/yank
 
 Maybe we should install following plugins:
 - https://github.com/Shougo/unite.vim (can possibly replace CtrlP)
