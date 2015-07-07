@@ -16,6 +16,8 @@ call plug#begin('~/.vim/plugged')
 
 " File-line - open a file in a given line
 Plug 'bogado/file-line'
+" Bracketed-paste - Handles bracketed-paste-mode (aka. automatic `:set paste`)
+Plug 'ConradIrwin/vim-bracketed-paste'
 " Easily search for, substitute, and abbreviate multiple variants of a word
 Plug 'tpope/vim-abolish'
 " Quoting/parenthesizing made simple
