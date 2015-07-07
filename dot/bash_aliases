@@ -1,4 +1,5 @@
-
+# dig program comes with dnsutils package
+alias wanip='dig +short myip.opendns.com @resolver1.opendns.com'
 
 # cd to git root dir
 alias gitroot='cd $(git rev-parse --show-toplevel)'
