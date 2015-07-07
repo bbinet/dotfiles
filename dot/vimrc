@@ -90,6 +90,9 @@ Plug 'kana/vim-fakeclip'
 " vim-go - An entire development environment package for golang in Vim
 Plug 'fatih/vim-go', {'for': 'go'}
 
+" riv - environment for ReST in Vim
+Plug 'Rykka/riv.vim', {'for': 'rst'}
+
 Plug 'saltstack/salt-vim', {'for': 'sls'}
 
 " Colorschemes
