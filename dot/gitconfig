@@ -12,7 +12,7 @@
     subtree = !/usr/share/doc/git/contrib/subtree/git-subtree.sh
     st = status
     ci = commit
-    br = branch
+    br = for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) %(contents:subject) %(color:white)%(authorname)%(color:reset) %(color:red)%(objectname:short)%(color:reset) %(color:green)%(committerdate:relative)%(color:reset)'
     co = checkout
     df = diff
     lol = log --decorate --pretty=oneline --abbrev-commit --all --graph
