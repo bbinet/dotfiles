@@ -1,6 +1,8 @@
 # hub tab-completion script for bash.
 # This script complements the completion script that ships with git.
 
+[ -f /usr/share/bash-completion/completions/git ] && . /usr/share/bash-completion/completions/git
+
 # Check that git tab completion is available
 if declare -F _git > /dev/null; then
   # Duplicate and rename the 'list_all_commands' function
