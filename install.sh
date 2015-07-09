@@ -21,4 +21,12 @@ then
     deactivate
 fi
 
+if [ "$1" == "-a" ]
+then
+    if [ ! -f ~/.bin/hub ]
+    then
+       curl -L https://github.com/github/hub/releases/download/v2.2.1/hub-linux-amd64-2.2.1.tar.gz | tar zx --strip=1 -C ~/.bin/ hub-linux-amd64-2.2.1/hub
+    fi
+fi
+
 vim +PlugInstall +qall
