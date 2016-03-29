@@ -24,6 +24,8 @@ Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-surround'
 " Enable repeating supported plugin maps with "." 
 Plug 'tpope/vim-repeat'
+" Provides additional text objects
+Plug 'wellle/targets.vim'
 " Heuristically set buffer options like shiftwidth and expandtab
 Plug 'tpope/vim-sleuth'
 " Comment stuff out
