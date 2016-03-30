@@ -71,9 +71,9 @@ Plug 'bbinet/vim-fugitive'
     noremap <leader>G :Gstatus<cr>:q<cr>
 
 " UltiSnips - the ultimate solution for snippets in Vim
-Plug 'SirVer/ultisnips', { 'on': [] }
+"Plug 'SirVer/ultisnips', { 'on': [] }
 " vim-snippets (they are separated from the ultisnips engine)
-Plug 'honza/vim-snippets'
+"Plug 'honza/vim-snippets'
 
 " YouCompleteMe - Advanced code completion engine
 Plug 'Valloric/YouCompleteMe', { 'do': './install.sh', 'on': [] }
