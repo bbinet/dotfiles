@@ -89,6 +89,9 @@ Plug 'arecarn/crunch.vim'
 " Fakeclip - Pseudo clipboard register for non-GUI version of Vim
 Plug 'kana/vim-fakeclip'
 
+" Cursorword - Underlines the work under the cursor
+Plug 'itchyny/vim-cursorword'
+
 " vim-go - An entire development environment package for golang in Vim
 Plug 'fatih/vim-go', {'for': 'go'}
 
@@ -105,7 +108,8 @@ call plug#end()
 " lazy loading of ultisnips and YouCompleteMe plugins on InsertEnter
 augroup load_insertenter
     autocmd!
-    autocmd InsertEnter * call plug#load('ultisnips', 'YouCompleteMe')
+    " autocmd InsertEnter * call plug#load('ultisnips', 'YouCompleteMe')
+    autocmd InsertEnter * call plug#load('YouCompleteMe')
     	\| call youcompleteme#Enable() | autocmd! load_insertenter
 augroup END
 
