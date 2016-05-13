@@ -102,6 +102,8 @@ Plug 'saltstack/salt-vim', {'for': 'sls'}
 
 " Colorschemes
 Plug 'tomasr/molokai'
+Plug 'pR0Ps/molokai-dark'
+Plug 'itchyny/landscape.vim'
 
 call plug#end()
 
@@ -171,7 +173,7 @@ set showmode
 set showcmd
 set showmatch
 set t_Co=256
-colorscheme molokai
+colorscheme molokai-dark
 hi ColorColumn ctermbg=234
 if has('gui_running')
     set guifont=Menlo:h12
