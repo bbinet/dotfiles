@@ -20,7 +20,7 @@
     ctags = "!sh -c '[ -f .git/hooks/ctags ] || git init; .git/hooks/ctags' git-ctags"
 
 [core]
-    excludesfile = ~/.global_gitignore
+    excludesfile = ~/.global_ignore
 
 [init]
     templatedir = ~/.git_template
