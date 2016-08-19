@@ -86,6 +86,9 @@ Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 " Crunch - Vim calculator
 Plug 'arecarn/crunch.vim'
 
+" Codi - The interactive scratchpad for hackers
+Plug 'metakirby5/codi.vim'
+
 " Fakeclip - Pseudo clipboard register for non-GUI version of Vim
 Plug 'kana/vim-fakeclip'
 
