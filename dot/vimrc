@@ -76,7 +76,7 @@ Plug 'bbinet/vim-fugitive'
 "Plug 'honza/vim-snippets'
 
 " YouCompleteMe - Advanced code completion engine
-Plug 'Valloric/YouCompleteMe', { 'do': './install.sh', 'on': [] }
+" Plug 'Valloric/YouCompleteMe', { 'do': './install.sh', 'on': [] }
 
 " TagBar - A class outline viewer for vim
 Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }

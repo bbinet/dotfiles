@@ -44,8 +44,8 @@ before_bash_exit () {
 }
 trap before_bash_exit EXIT
 
-if [ -f ~/.pip_bootstrap_profile.sh ]; then
-    . ~/.pip_bootstrap_profile.sh
+if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
+    . /usr/local/bin/virtualenvwrapper.sh
 fi
 
 # enable bash completion in interactive shells
