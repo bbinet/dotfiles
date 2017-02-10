@@ -75,9 +75,6 @@ Plug 'bbinet/vim-fugitive'
 " vim-snippets (they are separated from the ultisnips engine)
 "Plug 'honza/vim-snippets'
 
-" YouCompleteMe - Advanced code completion engine
-" Plug 'Valloric/YouCompleteMe', { 'do': './install.sh', 'on': [] }
-
 " TagBar - A class outline viewer for vim
 Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
     nnoremap <F8> :TagbarToggle<cr>
@@ -109,14 +106,6 @@ Plug 'pR0Ps/molokai-dark'
 Plug 'itchyny/landscape.vim'
 
 call plug#end()
-
-" lazy loading of ultisnips and YouCompleteMe plugins on InsertEnter
-augroup load_insertenter
-    autocmd!
-    " autocmd InsertEnter * call plug#load('ultisnips', 'YouCompleteMe')
-    autocmd InsertEnter * call plug#load('YouCompleteMe')
-    	\| call youcompleteme#Enable() | autocmd! load_insertenter
-augroup END
 
 " Globals {{{
 set nocompatible
