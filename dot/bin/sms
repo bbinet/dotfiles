@@ -1,0 +1,51 @@
+#!/bin/bash
+
+# Usage: sms [message to send. default=ping] [account to use. default=$USER]
+#
+# (accounts will be saved/restored to/from ~/.sms file)
+
+msg="${1:-ping}"
+account="${2:-$USER}"
+
+if [ -f ~/.sms ]
+then
+    source ~/.sms
+fi
+
+uid_var="sms_${account}_uid"
+uid="${!uid_var}"
+key_var="sms_${account}_key"
+key="${!key_var}"
+
+if [ -z "${uid}" ] || [ -z "${key}" ]
+then
+    read -p "Please enter user id for account \"$account\": " uid
+    if [ -z "$uid" ]
+    then
+        echo "Aborting... (empty answer)"
+        exit 1
+    fi
+    read -p "Please enter api key for account \"$account\": " key
+    if [ -z "$key" ]
+    then
+        echo "Aborting... (empty answer)"
+        exit 1
+    fi
+    declare "sms_${account}_uid"="$uid"
+    declare "sms_${account}_key"="$key"
+    sms_accounts="${sms_accounts}:${account}"
+    echo "sms_accounts='${sms_accounts}'" > ~/.sms
+    for a in $(echo ${sms_accounts} | tr ":" "\n")
+    do
+        u_var="sms_${a}_uid"
+        k_var="sms_${a}_key"
+        echo "sms_${a}_uid='${!u_var}'" >> ~/.sms
+        echo "sms_${a}_key='${!k_var}'" >> ~/.sms
+    done
+fi
+
+curl -k -G -s -o /dev/null -w "%{http_code}\n" \
+    --data-urlencode "user=${uid}" \
+    --data-urlencode "pass=${key}" \
+    --data-urlencode "msg=${msg}" \
+    "https://smsapi.free-mobile.fr/sendmsg"
