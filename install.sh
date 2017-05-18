@@ -14,16 +14,21 @@ then
     exit 1
 fi
 
-if [ ! -d ~/.virtualenvs/syntax-checkers ]
-then
-    source /usr/local/bin/virtualenvwrapper.sh
-    mkvirtualenv syntax-checkers
-    pip install -r pip/syntax-checkers.txt
-    deactivate
-fi
-
 if [ "$1" == "-a" ]
 then
+    source /usr/local/bin/virtualenvwrapper.sh
+    for venv in syntax-checkers global
+    do
+        if [ -d "$WORKON_HOME/$venv" ]
+        then
+            workon $venv
+        else
+            mkvirtualenv $venv
+        fi
+        pip install -U -r pip/${venv}.txt
+        deactivate
+    done
+
     if [ ! -f ~/.bin/hub ]
     then
        echo "fixme download hub"
