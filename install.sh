@@ -16,14 +16,14 @@ fi
 
 if [ "$1" == "-a" ]
 then
-    source /usr/local/bin/virtualenvwrapper.sh
+    source ~/.virtualenvwrapper.sh
     for venv in syntax-checkers global
     do
         if [ -d "$WORKON_HOME/$venv" ]
         then
             workon $venv
         else
-            mkvirtualenv $venv
+            mkvirtualenv --system-site-packages $venv
         fi
         pip install -U -r pip/${venv}.txt
         deactivate
