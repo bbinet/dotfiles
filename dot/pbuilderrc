@@ -96,6 +96,6 @@ Architecture: $ARCH
 EOF
 fi
 
-export http_proxy=http://localhost:3142
+#export http_proxy=http://localhost:3142
 
 # ---- END ------

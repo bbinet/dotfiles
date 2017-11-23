@@ -44,6 +44,8 @@ Plug 'tpope/vim-unimpaired'
 
 " quickfix-reflector.vim - Change code right in the quickfix window
 Plug 'stefandtw/quickfix-reflector.vim'
+" vim-qargs - Add Qargs and Qdo utility commands
+Plug 'MarioRicalde/vim-qargs'
 
 " CtrlP - Fuzzy file, buffer, mru, tag, etc finder
 Plug 'ctrlpvim/ctrlp.vim', { 'on': ['CtrlP', 'CtrlPBuffer', 'CtrlPCurFile', 'CtrlPTag'] }
@@ -100,6 +102,8 @@ Plug 'Rykka/riv.vim', {'for': 'rst'}
 
 Plug 'saltstack/salt-vim', {'for': 'sls'}
 
+Plug 'Glench/Vim-Jinja2-Syntax'
+
 " Colorschemes
 Plug 'tomasr/molokai'
 Plug 'pR0Ps/molokai-dark'
@@ -109,7 +113,7 @@ call plug#end()
 
 " Globals {{{
 set nocompatible
-set modelines=0
+set modelines=2
 set autoread
 " make mouse to work with gnu screen
 set ttymouse=xterm2
