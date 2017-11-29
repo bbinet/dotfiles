@@ -72,6 +72,27 @@ Plug 'bbinet/vim-fugitive'
     noremap <leader>g :Gstatus<cr>
     noremap <leader>G :Gstatus<cr>:q<cr>
 
+" GitGutter - Show git diff in the gutter (sign column) and stages/undoes hunks
+Plug 'airblade/vim-gitgutter'
+    nmap ]h <Plug>GitGutterNextHunk
+    nmap [h <Plug>GitGutterPrevHunk
+    omap ih <Plug>GitGutterTextObjectInnerPending
+    omap ah <Plug>GitGutterTextObjectOuterPending
+    xmap ih <Plug>GitGutterTextObjectInnerVisual
+    xmap ah <Plug>GitGutterTextObjectOuterVisual
+
+    function! GlobalChangedLines(ex_cmd)
+      for hunk in GitGutterGetHunks()
+        for lnum in range(hunk[2], hunk[2]+hunk[3]-1)
+          let cursor = getcurpos()
+          silent! execute lnum.a:ex_cmd
+          call setpos('.', cursor)
+        endfor
+      endfor
+    endfunction
+
+    command! -nargs=1 Glines call GlobalChangedLines(<q-args>)
+
 " UltiSnips - the ultimate solution for snippets in Vim
 "Plug 'SirVer/ultisnips', { 'on': [] }
 " vim-snippets (they are separated from the ultisnips engine)
