@@ -70,7 +70,6 @@ Plug 'sjl/gundo.vim', { 'on': ['GundoShow', 'GundoToggle'] }
 " Fugitive - For sexy git integration
 Plug 'bbinet/vim-fugitive'
     noremap <leader>g :Gstatus<cr>
-    noremap <leader>G :Gstatus<cr>:q<cr>
 
 " GitGutter - Show git diff in the gutter (sign column) and stages/undoes hunks
 Plug 'airblade/vim-gitgutter'
@@ -275,5 +274,8 @@ noremap <leader>* "cyiw:QGgrep "\<<c-r>c\>"<cr>
 
 " Allow saving of files as sudo when I forgot to start vim using sudo
 cmap w!! w !sudo tee > /dev/null %
+
+" Close the preview window
+noremap <leader>c :pclose<cr>
 
 " }}}
