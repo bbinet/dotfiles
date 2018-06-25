@@ -18,7 +18,7 @@
     lol = log --decorate --pretty=oneline --abbrev-commit --all --graph
     addremove = !git add . && git ls-files --deleted | xargs git rm
     ctags = "!sh -c '[ -f .git/hooks/ctags ] || git init; .git/hooks/ctags' git-ctags"
-    start = !git init && git commit --allow-empty -m \"Initial commit\"
+    initempty = !git init && git commit --allow-empty -m \"Initial commit\"
 
 [core]
     excludesfile = ~/.global_ignore
