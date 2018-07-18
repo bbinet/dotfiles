@@ -29,8 +29,8 @@ then
     fi
     if [ ! -f ~/.bin/hub ]
     then
-       echo "fixme download hub"
-       #curl -L https://github.com/github/hub/releases/download/v2.2.1/hub-linux-amd64-2.2.1.tar.gz | tar zx --strip=1 -C ~/.bin/ hub-linux-amd64-2.2.1/hub
+        echo "Installing hub..."
+       curl -L https://github.com/github/hub/releases/download/v2.5.0/hub-linux-amd64-2.5.0.tgz | tar zx --strip=2 -C ~/.bin/ hub-linux-amd64-2.5.0/bin/hub
     fi
 fi
 
