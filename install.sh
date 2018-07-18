@@ -8,27 +8,25 @@ do
     ln -sf "${CWD}/dot/${d}" ~/.${d}
 done
 
-if [ ! -f /usr/local/bin/virtualenvwrapper.sh ]
-then
-    echo "Virtualenvwrapper must be installed first"
-    exit 1
-fi
-
 if [ "$1" == "-a" ]
 then
-    source ~/.virtualenvwrapper.sh
-    for venv in syntax-checkers global
-    do
-        if [ -d "$WORKON_HOME/$venv" ]
-        then
-            workon $venv
-        else
-            mkvirtualenv --system-site-packages $venv
-        fi
-        pip install -U -r pip/${venv}.txt
-        deactivate
-    done
-
+    (dpkg -l | grep -q python-pip) && sudo apt purge python-pip
+    which pip && sudo pip install --upgrade pip || sudo python get-pip.py
+    if [ ! -f ~/.local/bin/virtualenvwrapper.sh ]
+    then
+        echo "Installing virtualenvwrapper..."
+        pip install --user virtualenvwrapper
+    fi
+    if [ ! -f ~/.local/bin/pipenv ]
+    then
+        echo "Installing pipenv..."
+        pip install --user pipenv
+    fi
+    if [ ! -f ~/.local/bin/pepper ]
+    then
+        echo "Installing salt-pepper..."
+        pip install --user salt-pepper
+    fi
     if [ ! -f ~/.bin/hub ]
     then
        echo "fixme download hub"

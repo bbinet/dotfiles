@@ -34,7 +34,7 @@ export EDITOR=vim
 export LESS='-XFR'
 export TERM="xterm-256color"
 export PYTHONSTARTUP="$HOME/.pystartup.py"
-export PREPEND_PATH=$HOME/.bin:$HOME/.virtualenvs/global/bin:$HOME/.local/bin
+export PREPEND_PATH=$HOME/.bin:$HOME/.local/bin
 export PATH=${PATH/$PREPEND_PATH:/}
 export PATH=$PREPEND_PATH:$PATH
 

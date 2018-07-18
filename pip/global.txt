@@ -1,4 +1,0 @@
-salt-pepper
-watchdog
-autopep8
-youtube-dl
