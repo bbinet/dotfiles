@@ -13,6 +13,11 @@ export HISTTIMEFORMAT="%F %T "
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
+# Workaround issue: "Cannot open your terminal '/dev/pts/0'"
+# See: https://serverfault.com/a/620149
+function screen() {
+  /usr/bin/script -q -c "/usr/bin/screen ${*}" /dev/null
+}
 # ensure $SSH_AUTH_SOCK is available at /tmp/ssh-auth-sock-$USER
 if test $SSH_AUTH_SOCK && [ $SSH_AUTH_SOCK != "/tmp/ssh-auth-sock-$USER" ]
 then
