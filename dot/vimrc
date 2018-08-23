@@ -66,6 +66,9 @@ Plug 'ctrlpvim/ctrlp.vim', { 'on': ['CtrlP', 'CtrlPBuffer', 'CtrlPCurFile', 'Ctr
 Plug 'sjl/gundo.vim', { 'on': ['GundoShow', 'GundoToggle'] }
     nnoremap <F5> :GundoToggle<cr>
     inoremap <F5> <esc>:GundoToggle<cr>
+    if has('python3')
+        let g:gundo_prefer_python3 = 1
+    endif
 
 " Fugitive - For sexy git integration
 Plug 'bbinet/vim-fugitive'
