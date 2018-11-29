@@ -127,6 +127,8 @@ Plug 'saltstack/salt-vim', {'for': 'sls'}
 
 Plug 'Glench/Vim-Jinja2-Syntax'
 
+Plug 'google/vim-jsonnet'
+
 " Colorschemes
 Plug 'tomasr/molokai'
 Plug 'pR0Ps/molokai-dark'
