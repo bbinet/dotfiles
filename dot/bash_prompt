@@ -83,6 +83,11 @@ __venv_ps1() {
     [[ ! -z "$virtualenv" ]] && printf "${white}(${bblue}$virtualenv${white})${reset} "
 }
 
+__custom_ps1() {
+    local custom_ps1="${CUSTOM_PS1}"
+    [[ ! -z "$custom_ps1" ]] && printf "${white}>${byellow}$custom_ps1${white}<${reset} "
+}
+
 __git_ps1() {
     prefix="$1"
     suffix="$2"
@@ -125,4 +130,4 @@ if [ -z "${_ORIG_PS1}" ]; then
     export _ORIG_PS1="$PS1"
 fi
 
-export PROMPT_COMMAND='__git_ps1 "$(__jobs_ps1)$(__venv_ps1)" "$_ORIG_PS1" "${white}(${bgreen}%s${white}) "; __set_title'
+export PROMPT_COMMAND='__git_ps1 "$(__custom_ps1)$(__jobs_ps1)$(__venv_ps1)" "$_ORIG_PS1" "${white}(${bgreen}%s${white}) "; __set_title'
