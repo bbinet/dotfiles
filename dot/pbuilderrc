@@ -1,39 +1,42 @@
 # this file extends or overrides /usr/share/pbuilder/pbuilderrc
 
+export PBUILDERSATISFYDEPENDSCMD="/usr/lib/pbuilder/pbuilder-satisfydepends-classic"
+
 # ------ get and set distribution and arch vars --------
 
-UNSTABLE_CODENAME="sid"
-TESTING_CODENAME="jessie"
-STABLE_CODENAME="wheezy"
-STABLE_BACKPORTS_SUITE="$STABLE_CODENAME-backports"
-DEBIAN_SUITES=($UNSTABLE_CODENAME $TESTING_CODENAME $STABLE_CODENAME "unstable" "testing" "stable")
+#UNSTABLE_CODENAME="sid"
+#TESTING_CODENAME="jessie"
+#STABLE_CODENAME="wheezy"
+#STABLE_BACKPORTS_SUITE="$STABLE_CODENAME-backports"
+#DEBIAN_SUITES=($UNSTABLE_CODENAME $TESTING_CODENAME $STABLE_CODENAME "unstable" "testing" "stable")
+DEBIAN_SUITES=("stretch" "jessie" "wheezy" "unstable" "testing" "stable")
 UBUNTU_SUITES=("precise" "maverick" "lucid" "quantal")
 DEBIAN_MIRROR="http.debian.net"
 UBUNTU_MIRROR="fr.archive.ubuntu.com"
 
-# Optionally use the changelog of a package to determine the suite to use if
-if [ -z "${DIST}" ] && [ -r "debian/changelog" ]; then
-    DIST=$(dpkg-parsechangelog | awk '/^Distribution: / {print $2}')
-    # Use the unstable suite for certain suite values.
-    if $(echo "experimental UNRELEASED" | grep -q $DIST); then
-        DIST="$UNSTABLE_CODENAME"
-    fi
-fi
-
-# Optionally set a default distribution if none is used. Note that you can set your own default (i.e. ${DIST:="unstable"}).
-: ${DIST:="$(lsb_release --short --codename)"}
-
-case "$DIST" in
-    unstable)
-        DIST="$UNSTABLE_CODENAME"
-        ;;
-    testing)
-        DIST="$TESTING_CODENAME"
-        ;;
-    stable)
-        DIST="$STABLE_CODENAME"
-        ;;
-esac
+## Optionally use the changelog of a package to determine the suite to use if
+#if [ -z "${DIST}" ] && [ -r "debian/changelog" ]; then
+#    DIST=$(dpkg-parsechangelog | awk '/^Distribution: / {print $2}')
+#    # Use the unstable suite for certain suite values.
+#    if $(echo "experimental UNRELEASED" | grep -q $DIST); then
+#        DIST="$UNSTABLE_CODENAME"
+#    fi
+#fi
+#
+## Optionally set a default distribution if none is used. Note that you can set your own default (i.e. ${DIST:="unstable"}).
+#: ${DIST:="$(lsb_release --short --codename)"}
+#
+#case "$DIST" in
+#    unstable)
+#        DIST="$UNSTABLE_CODENAME"
+#        ;;
+#    testing)
+#        DIST="$TESTING_CODENAME"
+#        ;;
+#    stable)
+#        DIST="$STABLE_CODENAME"
+#        ;;
+#esac
 
 # Optionally set the architecture to the host architecture if none set. Note that you can set your own default (i.e. ${ARCH:="i386"}).
 : ${ARCH:="$(dpkg --print-architecture)"}
