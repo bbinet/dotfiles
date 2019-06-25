@@ -22,11 +22,6 @@ then
         echo "Installing pipenv..."
         pip install --user pipenv
     fi
-    if [ ! -f ~/.local/bin/pepper ]
-    then
-        echo "Installing salt-pepper..."
-        pip install --user salt-pepper
-    fi
     if [ ! -f ~/.bin/hub ]
     then
         echo "Installing hub..."
