@@ -11,21 +11,19 @@ done
 if [ "$1" == "-a" ]
 then
     (dpkg -l | grep -q python-pip) && sudo apt purge python-pip
-    which pip && sudo pip install --upgrade pip || sudo python get-pip.py
-    if [ ! -f ~/.local/bin/virtualenvwrapper.sh ]
-    then
-        echo "Installing virtualenvwrapper..."
-        pip install --user virtualenvwrapper
-    fi
-    if [ ! -f ~/.local/bin/pipenv ]
-    then
-        echo "Installing pipenv..."
-        pip install --user pipenv
-    fi
+    wget -O /tmp/get-pip.py https://bootstrap.pypa.io/get-pip.py
+    sudo python2 /tmp/get-pip.py --upgrade --force-reinstall
+    sudo python3 /tmp/get-pip.py --upgrade --force-reinstall
+    echo "Installing/upgrading virtualenvwrapper..."
+    pip2 install --upgrade --user virtualenvwrapper
+    pip3 install --upgrade --user virtualenvwrapper
+    echo "Installing pipenv..."
+    pip2 install --upgrade --user pipenv
+    pip3 install --upgrade --user pipenv
     if [ ! -f ~/.bin/hub ]
     then
         echo "Installing hub..."
-       curl -L https://github.com/github/hub/releases/download/v2.5.0/hub-linux-amd64-2.5.0.tgz | tar zx --strip=2 -C ~/.bin/ hub-linux-amd64-2.5.0/bin/hub
+       curl -L https://github.com/github/hub/releases/download/v2.12.1/hub-linux-amd64-2.12.1.tgz | tar zx --strip=2 -C ~/.bin/ hub-linux-amd64-2.12.1/bin/hub
     fi
 fi
 
