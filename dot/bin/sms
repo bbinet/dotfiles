@@ -7,6 +7,12 @@
 msg="${1:-ping}"
 account="${2:-$USER}"
 
+if [ $# -gt 2 ]; then
+    # if more than 2 args: account is last args and msg is previous args
+    msg="${@:1:$(($#-1))}"
+    account="${@:$#}"
+fi
+
 if [ -f ~/.sms ]
 then
     source ~/.sms
