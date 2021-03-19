@@ -284,4 +284,7 @@ cmap w!! w !sudo tee > /dev/null %
 " Close the preview window
 noremap <leader>c :pclose<cr>
 
+" Display the register list and select the one to be pasted
+nnoremap "p :reg <bar> exec 'normal! "'.input('>').'p'<CR>
+
 " }}}
