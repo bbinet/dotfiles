@@ -11,15 +11,18 @@ done
 if [ "$1" == "-a" ]
 then
     (dpkg -l | grep -q python-pip) && sudo apt purge python-pip
+    echo "For Python3:"
+    sudo apt install python3-distutils
     wget -O /tmp/get-pip.py https://bootstrap.pypa.io/get-pip.py
-    sudo python2 /tmp/get-pip.py --upgrade --force-reinstall
     sudo python3 /tmp/get-pip.py --upgrade --force-reinstall
-    echo "Installing/upgrading virtualenvwrapper..."
-    pip2 install --upgrade --user virtualenvwrapper
     pip3 install --upgrade --user virtualenvwrapper
-    echo "Installing pipenv..."
-    pip2 install --upgrade --user pipenv
     pip3 install --upgrade --user pipenv
+    echo "For Python2:"
+    sudo apt install python-distutils
+    wget -O /tmp/get-pip.py https://bootstrap.pypa.io/pip/2.7/get-pip.py
+    sudo python2 /tmp/get-pip.py --upgrade --force-reinstall
+    pip2 install --upgrade --user virtualenvwrapper
+    pip2 install --upgrade --user pipenv
     if [ ! -f ~/.bin/hub ]
     then
         echo "Installing hub..."
