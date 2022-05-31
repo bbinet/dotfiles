@@ -17,7 +17,7 @@
     df = diff
     lol = log --decorate --pretty=oneline --abbrev-commit --all --graph
     addremove = !git add . && git ls-files --deleted | xargs git rm
-    ctags = "!sh -c '[ -f .git/hooks/ctags ] || git init; .git/hooks/ctags' git-ctags"
+    ctags = !$(git rev-parse --git-dir)/hooks/ctags
     initempty = !git init && git commit --allow-empty -m \"Initial commit\"
 
 [core]
