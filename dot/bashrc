@@ -1,17 +1,28 @@
 # If not running interactively, don't do anything
-[ -z "$PS1" ] && return
+case $- in
+    *i*) ;;
+      *) return;;
+esac
 
 # erase duplicate lines from the history and ignore line starting with a space
 export HISTCONTROL=ignoreboth:erasedups
 # increase history size
-export HISTFILESIZE=10000
+
+# append to the history file, don't overwrite it
+shopt -s histappend
+
 export HISTSIZE=10000
+export HISTFILESIZE=10000
 # include timestamp for every command in history
 export HISTTIMEFORMAT="%F %T "
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
+
+# If set, the pattern "**" used in a pathname expansion context will
+# match all files and zero or more directories and subdirectories.
+shopt -s globstar
 
 # Workaround issue: "Cannot open your terminal '/dev/pts/0'"
 # See: https://serverfault.com/a/620149
@@ -37,7 +48,7 @@ fi
 alias grep="grep $GREP_OPTIONS"
 export EDITOR=vim
 export LESS='-XFR'
-export TERM="xterm-256color"
+#export TERM="xterm-256color"
 export PYTHONSTARTUP="$HOME/.pystartup.py"
 export PREPEND_PATH=$HOME/.bin:$HOME/.local/bin
 export PATH=${PATH/$PREPEND_PATH:/}
@@ -51,10 +62,6 @@ before_bash_exit () {
 }
 trap before_bash_exit EXIT
 
-if [ -f ~/.virtualenvwrapper.sh ]; then
-    source ~/.virtualenvwrapper.sh
-fi
-
 # enable bash completion in interactive shells
 if ! shopt -oq posix; then
   if [ -f /usr/share/bash-completion/bash_completion ]; then
@@ -62,6 +69,10 @@ if ! shopt -oq posix; then
   elif [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
   fi
+  if [ -f /usr/share/bash-completion/completions/virtualenvwrapper ]; then
+      source /usr/share/bash-completion/completions/virtualenvwrapper
+  fi
+
 fi
 for compl in ~/.bash_completion.d/* ; do
     source "$compl"
@@ -76,4 +87,4 @@ if [ -f ~/.bashrc_after ]; then
 fi
 
 # only load bash prompt in interactive shells, not from a script or from scp
-[[ $- = *i* ]] && source ~/.dotfiles/dot/bash_prompt
+source ~/.dotfiles/dot/bash_prompt
