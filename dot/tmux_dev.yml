@@ -1,0 +1,38 @@
+session_name: dev
+start_directory: ~/dev
+windows:
+  - window_name: TODO
+    panes:
+      - vi ~/TODO_TODAY.txt
+  - window_name: hl-esp-cli
+    panes:
+      - shell_command: # run multiple commands in this pane
+          - cd hl-esp-cli
+          - workon hl-esp-cli
+          - source bash_completion.bash
+  - window_name: esp
+    shell_command_before:
+    - cd ~/dev/esp/esp-rainmaker/examples/spsn
+    - source $IDF_PATH/export.sh
+    layout: main-vertical
+    options:
+      main-pane-width: 50%
+    panes:
+      - echo vi
+      - echo monitor
+  - window_name: hl-setupify
+    panes:
+      - cd hl-setupify/
+  - window_name: chroot
+    shell_command_before:
+    - cmd: sudo /home/bruno/chroot_old.sh
+      sleep_after: 1
+    - su - bruno
+    - cd dev/
+    panes:
+      - echo CHROOT
+  - window_name: install_debian_13
+    layout: tiled
+    panes:
+      - vi ~/install_config_debian_13.md
+      #- echo second pane # pane no. 2
